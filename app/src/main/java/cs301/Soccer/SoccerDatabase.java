@@ -16,6 +16,8 @@ import java.util.*;
  */
 public class SoccerDatabase implements SoccerDB {
 
+    private Hashtable <String, SoccerPlayer> players = new Hashtable<String, SoccerPlayer>();
+
     /**
      * add a player
      *
@@ -24,8 +26,19 @@ public class SoccerDatabase implements SoccerDB {
     @Override
     public boolean addPlayer(String firstName, String lastName,
                              int uniformNumber, String teamName) {
-        return false;
+
+        String key = firstName + "##" + lastName;
+
+        if (players.containsKey(key)) {
+            return false;
+        } else {
+            SoccerPlayer newSoccerPlayer = new SoccerPlayer(firstName, lastName, uniformNumber, teamName);
+            players.put(key, newSoccerPlayer);
+            return true;
+        }
+
     }
+
 
     /**
      * remove a player
@@ -34,7 +47,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean removePlayer(String firstName, String lastName) {
-        return false;
+        String key = firstName+"##"+lastName;
+        if (players.containsKey(key)){
+            players.remove(key);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -44,7 +63,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public SoccerPlayer getPlayer(String firstName, String lastName) {
-        return null;
+        String key = firstName+"##"+lastName;
+        if (players.containsKey(key)){
+            return players.get(key);
+        } else {
+            return null;
+        }
+
     }
 
     /**
