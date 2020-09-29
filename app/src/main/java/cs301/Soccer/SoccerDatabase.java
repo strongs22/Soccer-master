@@ -80,6 +80,7 @@ public class SoccerDatabase implements SoccerDB {
         String key = firstName+"##"+lastName;
         if (players.containsKey(key)){
             players.get(key).bumpGoals();
+            return true;
         } else {
             return false;
         }
@@ -95,6 +96,7 @@ public class SoccerDatabase implements SoccerDB {
         String key = firstName+"##"+lastName;
         if (players.containsKey(key)){
             players.get(key).bumpAssists();
+            return true;
         } else {
             return false;
         }
@@ -110,6 +112,7 @@ public class SoccerDatabase implements SoccerDB {
         String key = firstName+"##"+lastName;
         if (players.containsKey(key)){
             players.get(key).bumpShots();
+            return true;
         } else {
             return false;
         }
@@ -125,6 +128,7 @@ public class SoccerDatabase implements SoccerDB {
         String key = firstName+"##"+lastName;
         if (players.containsKey(key)){
             players.get(key).bumpSaves();
+            return true;
         } else {
             return false;
         }
@@ -140,6 +144,7 @@ public class SoccerDatabase implements SoccerDB {
         String key = firstName+"##"+lastName;
         if (players.containsKey(key)){
             players.get(key).bumpFouls();
+            return true;
         } else {
             return false;
         }
@@ -155,6 +160,7 @@ public class SoccerDatabase implements SoccerDB {
         String key = firstName+"##"+lastName;
         if (players.containsKey(key)){
             players.get(key).bumpYellowCards();
+            return true;
         } else {
             return false;
         }
@@ -170,6 +176,7 @@ public class SoccerDatabase implements SoccerDB {
         String key = firstName+"##"+lastName;
         if (players.containsKey(key)){
             players.get(key).bumpRedCards();
+            return true;
         } else {
             return false;
         }
