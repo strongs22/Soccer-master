@@ -36,9 +36,7 @@ public class SoccerDatabase implements SoccerDB {
             players.put(key, newSoccerPlayer);
             return true;
         }
-
     }
-
 
     /**
      * remove a player
@@ -79,7 +77,12 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpGoals(String firstName, String lastName) {
-        return false;
+        String key = firstName+"##"+lastName;
+        if (players.containsKey(key)){
+            players.get(key).bumpGoals();
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -89,7 +92,12 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpAssists(String firstName, String lastName) {
-        return false;
+        String key = firstName+"##"+lastName;
+        if (players.containsKey(key)){
+            players.get(key).bumpAssists();
+        } else {
+            return false;
+        }
     }
 
     /**
